@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "main": "ts-node index.ts",
+    "dev": "ts-node index.ts",
     "build": "tsc",
     "ci:update": "git pull && yarn && yarn build && forever restartall"
   },
