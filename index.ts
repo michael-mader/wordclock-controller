@@ -13,7 +13,7 @@ const mods = {
 
 const controller = new Controller([
     mods.brightness,
-    mods.rainbowMinutes,
+    mods.rainbowHour,
 ]);
 controller.init();
 
