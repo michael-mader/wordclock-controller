@@ -7,7 +7,7 @@ const rainbowColors = chroma.scale(config.rainbow.colors).mode(config.rainbow.mo
 
 let rIdx = 0;
 const rainbow = () => {
-    rIdx = rIdx++ % rainbowColors.length;
+    rIdx = rIdx + 1 % rainbowColors.length;
     color(rainbowColors[rIdx]);
     setTimeout(() => {
         rainbow();
@@ -15,9 +15,8 @@ const rainbow = () => {
 }
 
 const main = async () => {
-    await singleColorMode();
-
     if (process.argv && process.argv[process.argv.length - 1]) {
+        await singleColorMode();
         rainbow();
     }
 };
