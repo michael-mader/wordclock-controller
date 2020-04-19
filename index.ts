@@ -6,7 +6,8 @@ const rainbowColors = chroma.scale(['#f00', '#0f0', '#00f', '#f00']).mode('hsl')
 
 let rIdx = 0;
 const rainbow = () => {
-    color(rainbowColors[rIdx++ % rainbowColors.length]);
+    rIdx = rIdx++ % rainbowColors.length;
+    color(rainbowColors[rIdx]);
     setTimeout(() => {
         rainbow();
     }, 5000);
