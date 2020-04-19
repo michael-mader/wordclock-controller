@@ -40,7 +40,7 @@ cron.schedule('0 0 * * *', () => {
     brightness(30);
 });
 
-// full brigthness at 8:00
-cron.schedule('0 8 * * *', () => {
+// full brigthness at 6:30
+cron.schedule('30 6 * * *', () => {
     brightness(100);
 });
