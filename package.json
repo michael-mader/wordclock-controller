@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "main": "ts-node index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "ci:update": "git pull && yarn && yarn build && forever restartall"
   },
   "dependencies": {
     "axios": "^0.19.2",
