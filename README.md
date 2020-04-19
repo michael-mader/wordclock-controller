@@ -7,13 +7,18 @@ yarn build
 node index.js
 ```
 
+or run with forever
+
 ## update
 ```
 yarn build
 node index.js
 ```
 
-or run with forever
+## update on pi
+```
+yarn ci:update
+```
 
 ## usage
 ```

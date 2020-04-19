@@ -1,8 +1,9 @@
-import chroma from 'chroma-js';
+import chroma, { InterpolationMode } from 'chroma-js';
 import { color, singleColorMode, brightness } from './wordclock';
 import * as cron from 'node-cron';
+import config from './config';
 
-const rainbowColors = chroma.scale(['#f00', '#0f0', '#00f', '#f00']).mode('hsl').colors(360);
+const rainbowColors = chroma.scale(config.rainbow.colors).mode(config.rainbow.mode as InterpolationMode).colors(config.rainbow.stops);
 
 let rIdx = 0;
 const rainbow = () => {
@@ -10,7 +11,7 @@ const rainbow = () => {
     color(rainbowColors[rIdx]);
     setTimeout(() => {
         rainbow();
-    }, 5000);
+    }, config.rainbow.interval);
 }
 
 const main = async () => {
@@ -33,15 +34,15 @@ main();
 
 // dim at 21:00
 cron.schedule('0 21 * * *', () => {
-    brightness(70);
+    brightness(config.brigthness.evening);
 });
 
 // dim even more at 00:00
 cron.schedule('0 0 * * *', () => {
-    brightness(30);
+    brightness(config.brigthness.night);
 });
 
 // full brigthness at 6:30
 cron.schedule('30 6 * * *', () => {
-    brightness(100);
+    brightness(config.brigthness.day);
 });
