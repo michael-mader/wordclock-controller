@@ -1,7 +1,8 @@
 export default {
     host: 'http://192.168.0.30/',
+    cooldown: 2000,
     rainbow: {
-        colors: ['#f00', '#0f0', '#00f', '#f00'],
+        colors: ['#fff', '#f00', '#0f0', '#00f', '#fff'],
         mode: 'hsl',
         stops: 360,
         interval: 5,

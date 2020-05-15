@@ -33,7 +33,7 @@ export default class Brightness extends Mod {
         const now = new Date();
         if(now.getHours() >= 21) {
             this.controller!.setBrightness(config.brigthness.evening);
-        }else if(now.getHours() >= 6 && now.getMinutes() >= 30) {
+        }else if(now.getHours() > 6 || (now.getHours() === 6 && now.getMinutes() >= 30)) {
             this.controller!.setBrightness(config.brigthness.day);
         }else{
             this.controller!.setBrightness(config.brigthness.night);

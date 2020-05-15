@@ -2,8 +2,11 @@ import axios, { AxiosResponse } from 'axios';
 import chroma from 'chroma-js';
 import config from '../config';
 import {debug as debugFactory} from 'debug';
+import { resolve } from 'dns';
 
 export type Mode = 'fade' | 'singleColor';
+
+type Work = {request: () => Promise<any>, resolve: (_: any) => any, reject: (_: any) => any};
 
 const debug = debugFactory('wordclock');
 
@@ -12,12 +15,53 @@ const client = axios.create({
     timeout: 1000,
 });
 
+const queue: Work[] = [];
+let queueStopSleep: () => void = () => {};
+
+const addToQueue = async ({
+    request,
+    resolve,
+    reject,
+}: Work) => {
+    queue.push({
+        request,
+        resolve,
+        reject,
+    });
+
+    queueStopSleep();
+};
+
+const workQueue = async () => {
+    while(true) {
+        if(queue.length > 0) {
+            const work = queue.shift();
+            await work?.request().then(work?.resolve).catch(work?.reject);
+            await new Promise((resolve) => {
+                setTimeout(resolve, config.cooldown);
+            });
+        }else{
+            const p = new Promise((resolve) => {
+                queueStopSleep = resolve;
+            });
+            await p;
+        }
+    }
+};
+
 const api = (path: string, params = {}): Promise<void | AxiosResponse<any>> => {
-    debug(`api call ${path} with ${JSON.stringify(params)}`);
-    return client.get(path, {
-        params,
-    }).catch((err) => {
-        debug(err.message);
+    return new Promise((resolve, reject) => {
+        addToQueue({
+            request: () => {
+                debug(`api call ${path} with ${JSON.stringify(params)}`);
+                return client.get(path, {
+                params,
+            }).catch((err) => {
+                debug(err.message);
+            })},
+            resolve,
+            reject,
+        });
     });
 };
 
@@ -63,3 +107,5 @@ export const regionalMode = (enabled: boolean) => {
         toggle: enabled ? 'on' : 'off',
     });
 };
+
+workQueue();
