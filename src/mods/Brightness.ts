@@ -14,15 +14,22 @@ export default class Brightness extends Mod {
             scheduled: false,
         }));
 
-        // dim even more at 00:00:02
-        this.tasks.push(cron.schedule('2 0 0 * * *', () => {
+        // dim even more at 23:00:02
+        this.tasks.push(cron.schedule('2 0 23 * * *', () => {
             this.controller!.setBrightness(config.brigthness.night);
         }, {
             scheduled: false,
         }));
 
-        // full brigthness at 6:30:02
+        // moring brigthness at 6:30:02
         this.tasks.push(cron.schedule('2 30 6 * * *', () => {
+            this.controller!.setBrightness(config.brigthness.morning);
+        }, {
+            scheduled: false,
+        }));
+
+        // full brigthness at 7:30:02
+        this.tasks.push(cron.schedule('2 30 7 * * *', () => {
             this.controller!.setBrightness(config.brigthness.day);
         }, {
             scheduled: false,
@@ -31,10 +38,12 @@ export default class Brightness extends Mod {
 
     onEnabled() {
         const now = new Date();
-        if(now.getHours() >= 21) {
+        if(now.getHours() >= 23) {
             this.controller!.setBrightness(config.brigthness.evening);
-        }else if(now.getHours() > 6 || (now.getHours() === 6 && now.getMinutes() >= 30)) {
+        }else if(now.getHours() > 7 || (now.getHours() === 7 && now.getMinutes() >= 30)) {
             this.controller!.setBrightness(config.brigthness.day);
+        }else if(now.getHours() > 6 || (now.getHours() === 6 && now.getMinutes() >= 30)) {
+            this.controller!.setBrightness(config.brigthness.morning);
         }else{
             this.controller!.setBrightness(config.brigthness.night);
         }
