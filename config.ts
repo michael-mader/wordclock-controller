@@ -16,6 +16,7 @@ export default {
     },
   },
   brigthness: {
+    morning: 70,
     day: 100,
     evening: 70,
     night: 30,
