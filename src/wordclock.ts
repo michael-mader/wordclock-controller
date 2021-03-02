@@ -19,7 +19,7 @@ const client = axios.create({
 });
 
 const queue: Work[] = [];
-let queueStopSleep: () => void = () => {};
+let queueStopSleep: (_: any = null) => void = () => {};
 
 const addToQueue = async ({ request, resolve, reject }: Work) => {
   queue.push({
