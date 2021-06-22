@@ -7,29 +7,29 @@ export default class Brightness extends Mod {
     constructor() {
         super();
 
-        // dim at 21:00:02
-        this.tasks.push(cron.schedule('2 0 21 * * *', () => {
+        // dim at 21:00:02 (try 3 times)
+        this.tasks.push(cron.schedule('2,4,6 0 21 * * *', () => {
             this.controller!.setBrightness(config.brigthness.evening);
         }, {
             scheduled: false,
         }));
 
-        // dim even more at 23:00:02
-        this.tasks.push(cron.schedule('2 0 23 * * *', () => {
+        // dim even more at 23:00:02 (try 3 times)
+        this.tasks.push(cron.schedule('2,4,6 0 23 * * *', () => {
             this.controller!.setBrightness(config.brigthness.night);
         }, {
             scheduled: false,
         }));
 
-        // moring brigthness at 6:30:02
-        this.tasks.push(cron.schedule('2 30 6 * * *', () => {
+        // moring brigthness at 6:30:02 (try 3 times)
+        this.tasks.push(cron.schedule('2,4,6 30 6 * * *', () => {
             this.controller!.setBrightness(config.brigthness.morning);
         }, {
             scheduled: false,
         }));
 
-        // full brigthness at 7:30:02
-        this.tasks.push(cron.schedule('2 30 7 * * *', () => {
+        // full brigthness at 7:30:02 (try 3 times)
+        this.tasks.push(cron.schedule('2,4,6 30 7 * * *', () => {
             this.controller!.setBrightness(config.brigthness.day);
         }, {
             scheduled: false,
