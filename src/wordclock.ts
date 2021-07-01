@@ -1,17 +1,20 @@
-import axios, { AxiosResponse } from "axios";
-import chroma from "chroma-js";
-import config from "../config";
-import { debug as debugFactory } from "debug";
+/* eslint-disable no-await-in-loop */
+import axios, { AxiosResponse } from 'axios';
+import chroma from 'chroma-js';
+import { debug as debugFactory } from 'debug';
+import config from '../config';
 
-export type Mode = "fade" | "singleColor";
+export type Mode = 'fade' | 'singleColor';
 
 type Work = {
   request: () => Promise<any>;
+  // eslint-disable-next-line no-unused-vars
   resolve: (_: any) => any;
+  // eslint-disable-next-line no-unused-vars
   reject: (_: any) => any;
 };
 
-const debug = debugFactory("wordclock");
+const debug = debugFactory('wordclock');
 
 const client = axios.create({
   baseURL: config.host,
@@ -19,6 +22,7 @@ const client = axios.create({
 });
 
 const queue: Work[] = [];
+// eslint-disable-next-line no-unused-vars
 let queueStopSleep: (_?: any) => void = () => {};
 
 const addToQueue = async ({ request, resolve, reject }: Work) => {
@@ -32,6 +36,7 @@ const addToQueue = async ({ request, resolve, reject }: Work) => {
 };
 
 const workQueue = async () => {
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     if (queue.length > 0) {
       const work = queue.shift();
@@ -40,6 +45,7 @@ const workQueue = async () => {
         setTimeout(resolve, config.cooldown);
       });
     } else {
+      // eslint-disable-next-line no-loop-func
       const p = new Promise((resolve) => {
         queueStopSleep = resolve;
       });
@@ -48,68 +54,57 @@ const workQueue = async () => {
   }
 };
 
-const api = (path: string, params = {}): Promise<void | AxiosResponse<any>> => {
-  return new Promise((resolve, reject) => {
-    addToQueue({
-      request: () => {
-        debug(`api call ${path} with ${JSON.stringify(params)}`);
-        return client
-          .get(path, {
-            params,
-          })
-          .catch((err) => {
-            debug(err.message);
-          });
-      },
-      resolve,
-      reject,
-    });
+const api = (path: string, params = {}):
+  Promise<void | AxiosResponse<any>> => new Promise((resolve, reject) => {
+  addToQueue({
+    request: () => {
+      debug(`api call ${path} with ${JSON.stringify(params)}`);
+      return client
+        .get(path, {
+          params,
+        })
+        .catch((err) => {
+          debug(err.message);
+        });
+    },
+    resolve,
+    reject,
   });
-};
+});
 
 export const status = async () => {
-  const res: AxiosResponse<any> = (await api("")) as AxiosResponse<any>;
-  const body: string = res.data ?? "";
+  const res: AxiosResponse<any> = (await api('')) as AxiosResponse<any>;
+  const body: string = res.data ?? '';
   const brightnessMatches = body.match(/brightnessSelected = ([0-9]+);/);
-  const status = {
-    color: "",
+  return {
+    color: '',
     brightness: brightnessMatches ? parseInt(brightnessMatches[1], 10) : 100,
-    region: body.indexOf("regionSelected = true;") !== -1,
-    mode: (body.indexOf("fadeSelected = true;") !== -1
-      ? "fade"
-      : "singleColor") as Mode,
+    region: body.indexOf('regionSelected = true;') !== -1,
+    mode: (body.indexOf('fadeSelected = true;') !== -1
+      ? 'fade'
+      : 'singleColor') as Mode,
   };
-
-  return status;
 };
 
-export const color = (color: string) => {
-  const rgb = chroma(color).rgb();
-  return api("color", {
+export const color = (newColor: string) => {
+  const rgb = chroma(newColor).rgb();
+  return api('color', {
     r: rgb[0],
     g: rgb[1],
     b: rgb[2],
   });
 };
 
-export const singleColorMode = () => {
-  return api("einfarbig");
-};
+export const singleColorMode = () => api('einfarbig');
 
-export const fadeMode = () => {
-  return api("fade");
-};
+export const fadeMode = () => api('fade');
 
-export const brightness = (b: number) => {
-  return api("brightness", {
-    brightness: b,
-  });
-};
+export const brightness = (b: number) => api('brightness', {
+  brightness: b,
+});
 
-export const regionalMode = (enabled: boolean) => {
-  return api("region", {
-    toggle: enabled ? "on" : "off",
-  });
-};
+export const regionalMode = (enabled: boolean) => api('region', {
+  toggle: enabled ? 'on' : 'off',
+});
 
 workQueue();

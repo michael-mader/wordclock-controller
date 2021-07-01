@@ -1,65 +1,72 @@
-import { status, color, brightness, Mode, fadeMode, singleColorMode, regionalMode } from "./wordclock";
-import Mod from "./mods/Mod";
+import {
+  color, brightness, Mode, fadeMode, singleColorMode, regionalMode,
+} from './wordclock';
+import Mod from './mods/Mod';
 
 export default class Controller {
     protected color: string = 'red';
+
     protected brightness: number = 100;
+
     protected region: boolean = true;
+
     protected mode: Mode = 'singleColor';
 
     protected mods: Mod[] = [];
 
     constructor(mods: Mod[] = []) {
-        this.mods = mods;
+      this.mods = mods;
     }
 
     async init() {
-        //const currentValues = await status();
-        ////this.color = currentValues.color;
-        //this.brightness = currentValues.brightness;
-        //this.region = currentValues.region;
-        //this.mode = currentValues.mode;
+      // const currentValues = await status();
+      /// /this.color = currentValues.color;
+      // this.brightness = currentValues.brightness;
+      // this.region = currentValues.region;
+      // this.mode = currentValues.mode;
 
-        this.mods.forEach(mod => mod.setController(this).enable());
+      this.mods.forEach((mod) => mod.setController(this).enable());
     }
 
     addMod(mod: Mod) {
-        this.mods.push(mod);
-        mod.enable();
+      this.mods.push(mod);
+      mod.enable();
     }
 
     removeMod(mod: Mod) {
-        mod.disable();
-        const idx = this.mods.indexOf(mod);
-        if(idx >= 0) {
-            this.mods.splice(idx, 1);
-        }
+      mod.disable();
+      const idx = this.mods.indexOf(mod);
+      if (idx >= 0) {
+        this.mods.splice(idx, 1);
+      }
     }
 
     setColor(newColor: string) {
-        this.color = newColor;
-        color(newColor);
+      this.color = newColor;
+      color(newColor);
     }
 
     setBrightness(newBrightness: number) {
-        this.brightness = newBrightness;
-        brightness(newBrightness);
+      this.brightness = newBrightness;
+      brightness(newBrightness);
     }
 
     setMode(newMode: Mode) {
-        this.mode = newMode;
-        switch(newMode) {
-            case 'fade':
-                fadeMode();
-                break;
-            case 'singleColor':
-                singleColorMode();
-                break;
-        }
+      this.mode = newMode;
+      switch (newMode) {
+        case 'fade':
+          fadeMode();
+          break;
+        case 'singleColor':
+          singleColorMode();
+          break;
+        default:
+          throw new Error(`invalid mode ${newMode}`);
+      }
     }
 
     setRegion(newRegion: boolean) {
-        this.region = newRegion;
-        regionalMode(newRegion);
+      this.region = newRegion;
+      regionalMode(newRegion);
     }
 }

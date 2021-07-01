@@ -1,1 +1,1 @@
-declare module "fritzbox.js";
+declare module 'fritzbox.js';

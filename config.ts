@@ -1,18 +1,18 @@
 export default {
-  host: "http://192.168.0.30/",
+  host: 'http://192.168.0.30/',
   cooldown: 2000,
   rainbow: {
-    colors: ["#fff", "#f00", "#0f0", "#00f", "#fff"],
-    mode: "hsl",
+    colors: ['#fff', '#f00', '#0f0', '#00f', '#fff'],
+    mode: 'hsl',
     stops: 360,
     interval: 5,
   },
   callmonitor: {
-    colors: ["#fff", "#f00"],
+    colors: ['#fff', '#f00'],
     stops: 2,
     fboptions: {
-      server: "192.168.0.1",
-      callmonitorport: "1012",
+      server: '192.168.0.1',
+      callmonitorport: '1012',
     },
   },
   brigthness: {
