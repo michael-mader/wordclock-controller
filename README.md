@@ -4,7 +4,7 @@
 ```
 yarn
 yarn build
-node index.js
+node build/index.js
 ```
 
 or run with forever
@@ -12,7 +12,7 @@ or run with forever
 ## update
 ```
 yarn build
-node index.js
+node build/index.js
 ```
 
 ## update on pi
@@ -23,8 +23,8 @@ yarn ci:update
 ## usage
 ```
 # only brigthness control
-node index.js
+node build/index.js
 
 # with rainbow color change
-node index.js rainbow
+node build/index.js rainbow
 ```
