@@ -2,37 +2,37 @@ import * as cron from 'node-cron';
 import Controller from '../Controller';
 
 export default class Mod {
-    protected tasks: cron.ScheduledTask[] = [];
+  protected tasks: cron.ScheduledTask[] = [];
 
-    protected controller?: Controller;
+  protected controller?: Controller;
 
-    setController(controller: Controller): Mod {
-      this.controller = controller;
+  setController(controller: Controller): Mod {
+    this.controller = controller;
 
-      return this;
+    return this;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  protected onEnabled() {}
+
+  enable(): Mod {
+    if (!this.controller) {
+      throw new Error('controller not set');
     }
+    this.tasks.forEach((task) => {
+      task.start();
+    });
 
-    // eslint-disable-next-line class-methods-use-this
-    protected onEnabled() {}
+    this.onEnabled();
 
-    enable(): Mod {
-      if (!this.controller) {
-        throw new Error('controller not set');
-      }
-      this.tasks.forEach((task) => {
-        task.start();
-      });
+    return this;
+  }
 
-      this.onEnabled();
+  disable(): Mod {
+    this.tasks.forEach((task) => {
+      task.stop();
+    });
 
-      return this;
-    }
-
-    disable(): Mod {
-      this.tasks.forEach((task) => {
-        task.stop();
-      });
-
-      return this;
-    }
+    return this;
+  }
 }
