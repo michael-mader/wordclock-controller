@@ -21,11 +21,11 @@ export default class Brightness extends Mod {
     }));
 
     // moring brigthness at 6:30:02 (try 3 times)
-    /*this.tasks.push(cron.schedule('2,4,6 30 6 * * *', () => {
+    /* this.tasks.push(cron.schedule('2,4,6 30 6 * * *', () => {
             this.controller!.setBrightness(config.brigthness.morning);
     }, {
       scheduled: false,
-    }));*/
+    })); */
 
     // full brigthness at 7:30:02 (try 3 times)
     this.tasks.push(cron.schedule('2,4,6 30 7 * * *', () => {
@@ -41,9 +41,9 @@ export default class Brightness extends Mod {
             this.controller!.setBrightness(config.brigthness.evening);
     } else if (now.getHours() > 7 || (now.getHours() === 7 && now.getMinutes() >= 30)) {
             this.controller!.setBrightness(config.brigthness.day);
-    /*} else if (now.getHours() > 6 || (now.getHours() === 6 && now.getMinutes() >= 30)) {
+    /* } else if (now.getHours() > 6 || (now.getHours() === 6 && now.getMinutes() >= 30)) {
             this.controller!.setBrightness(config.brigthness.morning);
-    */} else {
+    */ } else {
             this.controller!.setBrightness(config.brigthness.night);
     }
   }
