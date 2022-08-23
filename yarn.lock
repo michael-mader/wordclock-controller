@@ -146,10 +146,10 @@
   resolved "https://registry.yarnpkg.com/@types/node-cron/-/node-cron-3.0.2.tgz#1a95877680f828817e395789ac2bf8d72a5df6af"
   integrity sha512-SK/4GYWiWvGLPl/yv+Tm5oLYbzMx1V3y7CsNTvOb3vF8O9oXH11U6/zckISHnBl4YH8MvXHFIUXbYoBONSdmzw==
 
-"@types/node@16.11.52":
-  version "16.11.52"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.52.tgz#d797437435455f237800c171d05639f0335c37b9"
-  integrity sha512-GnstYouCa9kbYokBCWEVrszJ1P2rGAQpKrqACHKuixkaT8XGu8nsqHvEUIGqDs5vwtsJ7LrYqnPDKRD1V+M39A==
+"@types/node@16.11.53":
+  version "16.11.53"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.53.tgz#0826570a96f46cdba185c7129f11628bd6d3ab11"
+  integrity sha512-3yJerjVV8GlGSWCjEPal2cDymbQEE/1bhUr1NdW5apDPZo6EjBaqHxR7AC4wKmZ24Hzqcz+tgJyAGe9qcGHw7w==
 
 "@typescript-eslint/eslint-plugin@5.34.0":
   version "5.34.0"
