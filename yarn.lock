@@ -220,10 +220,10 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.2.tgz#423c77877d0569db20e1fc80885ac4118314010e"
   integrity sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==
 
-"@types/chroma-js@2.1.5":
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/@types/chroma-js/-/chroma-js-2.1.5.tgz#d2adeb5e23d90b7ffa1ad83cdd9ff2548d407312"
-  integrity sha512-LnJmElng1zoH7GOYqIo/EuL7L0/vEh5rc+fKaF4rsylJyjwOkX0pXeBemH25FQAWHifKJWqaRwR0EhC+yDod9A==
+"@types/chroma-js@2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@types/chroma-js/-/chroma-js-2.4.0.tgz#476a16ae848c77478079d6749236fdb98837b92c"
+  integrity sha512-JklMxityrwjBTjGY2anH8JaTx3yjRU3/sEHSblLH1ba5lqcSh1LnImXJZO5peJfXyqKYWjHTGy4s5Wz++hARrw==
 
 "@types/debug@4.1.7":
   version "4.1.7"
