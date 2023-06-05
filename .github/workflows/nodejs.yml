@@ -9,7 +9,7 @@ on:
       tags:
         description: "Run workflow"
 env:
-  NODE_VERSION: "12.x"
+  NODE_VERSION: "20.x"
 
 jobs:
   build:
