@@ -288,10 +288,10 @@
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
-"@types/node-cron@3.0.9":
-  version "3.0.9"
-  resolved "https://registry.yarnpkg.com/@types/node-cron/-/node-cron-3.0.9.tgz#e792dd4847804cc37ed90847f45e04e20cd08768"
-  integrity sha512-P10Vf+oagnMbefD31nqjS/dpBM34qzfdpvIgVZwtwsNb0Hg2lDaPFeGcyGUJIqh3zHlDMwYXGeunGgMnswgnPg==
+"@types/node-cron@3.0.10":
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/@types/node-cron/-/node-cron-3.0.10.tgz#be11a794ef99312830531f23bfe31d71f57649f0"
+  integrity sha512-8thdLSpV7na8+bsmiyMH/KKQWOBg4WmoLInlGxWz7JJn8Mie+53QWaygSlc7f/AsMsCB5bBTVjoueAU6tRutTw==
 
 "@types/node@18.18.6":
   version "18.18.6"
