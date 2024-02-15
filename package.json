@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node --files index.ts",
     "prebuild": "yarn lint",
-    "build": "yarn run esbuild index.ts --platform=node --target=node12 --bundle --outdir=build",
+    "build": "yarn run esbuild index.ts --platform=node --target=node20 --bundle --outdir=build",
     "lint": "eslint . --ext .ts",
     "ci:update": "git pull && yarn && yarn build && forever restartall"
   },
