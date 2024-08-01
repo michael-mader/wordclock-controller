@@ -1,4 +1,4 @@
-/* eslint-disable no-await-in-loop */
+ 
 import axios, { AxiosResponse } from 'axios';
 import chroma from 'chroma-js';
 import { debug as debugFactory } from 'debug';
@@ -6,13 +6,11 @@ import config from '../config';
 
 export type Mode = 'fade' | 'singleColor';
 
-type Work = {
-  request: () => Promise<any>;
-  // eslint-disable-next-line no-unused-vars
-  resolve: (_: any) => any;
-  // eslint-disable-next-line no-unused-vars
-  reject: (_: any) => any;
-};
+interface Work {
+  request: () => Promise<unknown>;
+  resolve: (_: unknown) => unknown;
+  reject: (_: unknown) => unknown;
+}
 
 const debug = debugFactory('wordclock');
 
@@ -22,8 +20,8 @@ const client = axios.create({
 });
 
 const queue: Work[] = [];
-// eslint-disable-next-line no-unused-vars
-let queueStopSleep: (_?: any) => void = () => {};
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+let queueStopSleep: (_?: unknown) => void = () => {};
 
 const addToQueue = async ({ request, resolve, reject }: Work) => {
   queue.push({
@@ -36,7 +34,7 @@ const addToQueue = async ({ request, resolve, reject }: Work) => {
 };
 
 const workQueue = async () => {
-  // eslint-disable-next-line no-constant-condition
+   
   while (true) {
     if (queue.length > 0) {
       const work = queue.shift();
@@ -45,7 +43,7 @@ const workQueue = async () => {
         setTimeout(resolve, config.cooldown);
       });
     } else {
-      // eslint-disable-next-line no-loop-func
+       
       const p = new Promise((resolve) => {
         queueStopSleep = resolve;
       });
@@ -55,7 +53,7 @@ const workQueue = async () => {
 };
 
 const api = (path: string, params = {}):
-  Promise<void | AxiosResponse<any>> => new Promise((resolve, reject) => {
+  Promise<AxiosResponse<unknown>> => new Promise((resolve, reject) => {
   addToQueue({
     request: () => {
       debug(`api call ${path} with ${JSON.stringify(params)}`);
@@ -73,7 +71,7 @@ const api = (path: string, params = {}):
 });
 
 export const status = async () => {
-  const res: AxiosResponse<any> = (await api('')) as AxiosResponse<any>;
+  const res: AxiosResponse<unknown> = (await api('')) as AxiosResponse<unknown>;
   const body: string = res.data ?? '';
   const brightnessMatches = body.match(/brightnessSelected = ([0-9]+);/);
   return {

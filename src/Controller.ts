@@ -4,11 +4,11 @@ import {
 import Mod from './mods/Mod';
 
 export default class Controller {
-  protected color: string = 'red';
+  protected color = 'red';
 
-  protected brightness: number = 100;
+  protected brightness = 100;
 
-  protected region: boolean = true;
+  protected region = true;
 
   protected mode: Mode = 'singleColor';
 

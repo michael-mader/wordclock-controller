@@ -11,7 +11,7 @@ export default class Callmonitor extends Mod {
 
   protected idx = 0;
 
-  protected monitor: any = null;
+  protected monitor: typeof fritzboxjs.Callmonitor | null = null;
 
   protected flashUntil = 0;
 
@@ -43,10 +43,9 @@ export default class Callmonitor extends Mod {
     return this;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onInbound(call: any) {
-    // eslint-disable-next-line no-console
     console.log('Call incoming');
-    // eslint-disable-next-line no-console
     console.log(call);
     this.flashUntil = new Date().getTime() + 10000;
     this.flash();
@@ -54,7 +53,7 @@ export default class Callmonitor extends Mod {
 
   flash() {
     this.idx = (this.idx + 1) % this.colors.length;
-    this.controller!.setColor(this.colors[this.idx]);
+    this.controller.setColor(this.colors[this.idx]);
     const now = new Date().getTime();
     if (now < this.flashUntil) {
       setTimeout(() => {

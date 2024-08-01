@@ -7,7 +7,7 @@
     "dev": "ts-node --files index.ts",
     "prebuild": "yarn lint",
     "build": "yarn run esbuild index.ts --platform=node --target=node20 --bundle --outdir=build",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint .",
     "ci:update": "git pull && yarn && yarn build && forever restartall"
   },
   "dependencies": {

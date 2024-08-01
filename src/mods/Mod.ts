@@ -4,7 +4,7 @@ import Controller from '../Controller';
 export default class Mod {
   protected tasks: cron.ScheduledTask[] = [];
 
-  protected controller?: Controller;
+  protected controller!: Controller;
 
   setController(controller: Controller): Mod {
     this.controller = controller;
@@ -12,7 +12,7 @@ export default class Mod {
     return this;
   }
 
-  // eslint-disable-next-line class-methods-use-this
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   protected onEnabled() {}
 
   enable(): Mod {
