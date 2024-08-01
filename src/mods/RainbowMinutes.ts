@@ -18,7 +18,7 @@ export default class RainbowMinutes extends Mod {
 
   rainbow() {
     const idx = new Date().getMinutes() % 5;
-        this.controller!.setColor(this.colors[idx]);
+        this.controller.setColor(this.colors[idx]);
   }
 
   onEnabled() {

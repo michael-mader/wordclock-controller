@@ -25,7 +25,7 @@ export default class RainbowHour extends Mod {
     const now = new Date();
     const seconds = now.getMinutes() * 60 + now.getSeconds();
     const idx = Math.round(seconds / 5) % this.colors.length;
-        this.controller!.setColor(this.colors[idx]);
+        this.controller.setColor(this.colors[idx]);
   }
 
   onEnabled() {

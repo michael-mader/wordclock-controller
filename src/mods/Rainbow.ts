@@ -25,7 +25,7 @@ export default class Rainbow extends Mod {
 
   rainbow() {
     this.idx += 1 % this.colors.length;
-        this.controller!.setColor(this.colors[this.idx]);
+        this.controller.setColor(this.colors[this.idx]);
   }
 
   onEnabled() {
