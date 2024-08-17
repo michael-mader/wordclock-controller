@@ -609,10 +609,10 @@ chalk@^4.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chroma-js@^2.1.1:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/chroma-js/-/chroma-js-2.6.0.tgz#578743dd359698a75067a19fa5571dec54d0b70b"
-  integrity sha512-BLHvCB9s8Z1EV4ethr6xnkl/P2YRFOGqfgvuMG/MyCbZPrTA+NeiByY6XvgF0zP4/2deU2CXnWyMa3zu1LqQ3A==
+chroma-js@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/chroma-js/-/chroma-js-3.0.0.tgz#c19b3b728352bb02b8906c60d7c7d223d3d9b721"
+  integrity sha512-ZFn4qxtZTvRJ7XatOLgaHGJYN10LoS6T0EMsu7IVayFG5+b6Yw8wCGQL5qLgo4B+wrRZ9niCrozOQ4a584bvaA==
 
 color-convert@^2.0.1:
   version "2.0.1"
