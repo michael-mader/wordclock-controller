@@ -294,10 +294,10 @@
   resolved "https://registry.npmjs.org/@tsconfig/node16/-/node16-1.0.2.tgz"
   integrity sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==
 
-"@types/chroma-js@2.4.5":
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/@types/chroma-js/-/chroma-js-2.4.5.tgz#483e08cdb1c400e8a9fb55b9c259caccb3e712f0"
-  integrity sha512-6ISjhzJViaPCy2q2e6PgK+8HcHQDQ0V2LDiKmYAh+jJlLqDa6HbwDh0wOevHY0kHHUx0iZwjSRbVD47WOUx5EQ==
+"@types/chroma-js@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@types/chroma-js/-/chroma-js-3.1.0.tgz#eb469c54c3d52b9905b33949e3be4270c5e3f95b"
+  integrity sha512-Uwl3SOtUkbQ6Ye6ZYu4q4xdLGBzmY839sEHYtOT7i691neeyd+7fXWT5VIkcUSfNwIFrIjQutNYQn9h4q5HFvg==
 
 "@types/debug@4.1.12":
   version "4.1.12"
