@@ -15,7 +15,7 @@
     "chroma-js": "^3.0.0",
     "debug": "^4.3.1",
     "fritzbox.js": "^2.0.1",
-    "node-cron": "^3.0.0"
+    "node-cron": "^4.0.0"
   },
   "devDependencies": {
     "@types/chroma-js": "3.1.1",
