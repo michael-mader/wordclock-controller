@@ -2172,9 +2172,9 @@ natural-compare@^1.4.0:
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
 node-cron@^4.0.0:
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/node-cron/-/node-cron-4.0.6.tgz#d363bab2f1dcca691732e36b43cb84e90990e3ed"
-  integrity sha512-T294pDgew/Nec/uXRoAcEbh+HIisrlZ7MeTx02KcLLI4eE89dwmUGSFT6L5kK7YrSSwa1Ovfm7ILpehiYVIrWQ==
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/node-cron/-/node-cron-4.0.7.tgz#f6c2542053bbf2ddd49742caeb560ec4c02236e9"
+  integrity sha512-A37UUDpxRT/kWanELr/oMayCWQFk9Zx9BEUoXrAKuKwKzH4XuAX+vMixMBPkgZBkADgJwXv91w5cMRTNSVP/mA==
 
 oauth-sign@~0.9.0:
   version "0.9.0"
