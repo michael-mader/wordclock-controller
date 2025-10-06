@@ -23,14 +23,14 @@
     "@types/es6-promise": "3.3.2",
     "@types/node": "22.18.8",
     "@types/node-cron": "3.0.11",
-    "@typescript-eslint/eslint-plugin": "8.45.0",
-    "@typescript-eslint/parser": "8.45.0",
+    "@typescript-eslint/eslint-plugin": "8.46.0",
+    "@typescript-eslint/parser": "8.46.0",
     "esbuild": "0.25.10",
     "eslint": "9.37.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.32.0",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.45.0"
+    "typescript-eslint": "8.46.0"
   }
 }
