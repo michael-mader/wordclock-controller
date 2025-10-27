@@ -18,7 +18,7 @@
     "node-cron": "^4.0.0"
   },
   "devDependencies": {
-    "@types/chroma-js": "3.1.1",
+    "@types/chroma-js": "3.1.2",
     "@types/debug": "4.1.12",
     "@types/es6-promise": "3.3.2",
     "@types/node": "22.18.12",
